@@ -1,0 +1,199 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0wnlcyy0ft4a"]
+
+[ext_resource type="Script" uid="uid://csghv45gu5uc5" path="res://main_menu.gd" id="1_wut1r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3jr6"]
+bg_color = Color(0.160784, 0.682353, 0.666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wut1r"]
+bg_color = Color(0.162686, 0.682888, 0.666231, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvu0j"]
+bg_color = Color(0.160784, 0.682353, 0.666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83s16"]
+bg_color = Color(0.160784, 0.682353, 0.666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ei6b"]
+bg_color = Color(0.160784, 0.682353, 0.666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7d22"]
+bg_color = Color(0.160784, 0.682353, 0.666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdsan"]
+bg_color = Color(0.160784, 0.682353, 0.666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wc2lj"]
+bg_color = Color(0.160784, 0.682353, 0.666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fy5us"]
+bg_color = Color(0.0627451, 0.333333, 0.321569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wked4"]
+bg_color = Color(0.0619936, 0.331741, 0.323528, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wut1r")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.701961, 0.803922, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.355
+anchor_top = 0.631
+anchor_right = 0.355
+anchor_bottom = 0.631
+offset_left = -186.895
+offset_top = -173.888
+offset_right = 187.105
+offset_bottom = 174.112
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MODES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerStartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_c3jr6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wut1r")
+text = "2 Player Mode"
+
+[node name="AIStartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_hvu0j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_83s16")
+text = "Play with AI"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ei6b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w7d22")
+text = "Quit
+"
+
+[node name="RulesButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_rdsan")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wc2lj")
+text = "Rules"
+
+[node name="UndoCheck" type="CheckBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.73
+anchor_top = 0.802
+anchor_right = 0.73
+anchor_bottom = 0.802
+offset_left = -92.77
+offset_top = -21.696
+offset_right = 92.23
+offset_bottom = 22.304
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Allow Undo ? 
+"
+
+[node name="StartGameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.886
+anchor_right = 0.51
+anchor_bottom = 0.886
+offset_left = -186.99
+offset_top = -21.1281
+offset_right = 187.01
+offset_bottom = 20.8719
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_fy5us")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wked4")
+text = "Start Game"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.176
+anchor_right = 0.5
+anchor_bottom = 0.176
+offset_left = -574.5
+offset_top = -52.048
+offset_right = 570.5
+offset_bottom = 51.952
+theme_override_font_sizes/font_size = 30
+text = "REVERSI
+
+Surround. Flip. Conquer or Outsmart your opponent in the ultimate battle 
+of Black & White."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.539
+anchor_right = 0.75
+anchor_bottom = 0.539
+offset_left = -132.75
+offset_top = 4.72797
+offset_right = 103.25
+offset_bottom = 75.728
+theme_override_font_sizes/font_size = 24
+text = "Timer Settings
+"
+
+[node name="EnableTimerCheck" type="CheckBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.734
+anchor_top = 0.657
+anchor_right = 0.734
+anchor_bottom = 0.657
+offset_left = -101.366
+offset_top = 0.264008
+offset_right = 101.634
+offset_bottom = 42.264
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Enable Timer ? "
+
+[node name="MinutesSpinBox" type="SpinBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.747
+anchor_top = 0.76
+anchor_right = 0.747
+anchor_bottom = 0.76
+offset_left = -124.303
+offset_top = -43.48
+offset_right = 61.697
+offset_bottom = -12.48
+min_value = 2.0
+max_value = 60.0
+value = 5.0

@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc3ag383sh8q"]
+
+[ext_resource type="Script" uid="uid://dnyt26naawkuo" path="res://board.gd" id="1_p0ybc"]
+[ext_resource type="PackedScene" uid="uid://dujpqdkf8m2r2" path="res://slot.tscn" id="2_psm7c"]
+[ext_resource type="Texture2D" uid="uid://bc7a03m6e54vq" path="res://black.png" id="3_8l818"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psm7c"]
+bg_color = Color(0.176471, 0.537255, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8l818"]
+bg_color = Color(0.176051, 0.535654, 0.188785, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgc1s"]
+bg_color = Color(0.886275, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqgjh"]
+bg_color = Color(0.884546, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf5bc"]
+bg_color = Color(0.999997, 0.541659, 0.473385, 1)
+
+[node name="Board" type="GridContainer" node_paths=PackedStringArray("Scorelable", "advantageBar")]
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.011
+anchor_right = 0.567
+anchor_bottom = 0.916
+offset_left = -0.298
+offset_top = -0.128001
+offset_right = 7.51697
+offset_bottom = 21.4319
+scale = Vector2(0.989143, 1.03335)
+mouse_filter = 2
+columns = 8
+script = ExtResource("1_p0ybc")
+slot_scene = ExtResource("2_psm7c")
+Scorelable = NodePath("CanvasLayer/HUD/ScoreLabel")
+advantageBar = NodePath("CanvasLayer/HUD/AdvantageBar")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="VBoxContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = -1
+anchor_left = 0.811
+anchor_top = 0.6
+anchor_right = 0.811
+anchor_bottom = 0.6
+offset_left = -216.839
+offset_top = -219.8
+offset_right = 196.161
+offset_bottom = 219.2
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TurnDisplay" type="VBoxContainer" parent="CanvasLayer/HUD"]
+layout_mode = 2
+
+[node name="TurnLabel" type="Label" parent="CanvasLayer/HUD/TurnDisplay"]
+layout_mode = 2
+text = "Current Turn"
+horizontal_alignment = 1
+
+[node name="TurnIcon" type="TextureRect" parent="CanvasLayer/HUD/TurnDisplay"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("3_8l818")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Black : 2 , White : 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="AdvantageBar" type="ProgressBar" parent="CanvasLayer/HUD"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+step = 0.1
+value = 50.0
+
+[node name="WhiteTimerLabel" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="BlackTimerLabel" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="UndoButton" type="Button" parent="CanvasLayer/HUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_psm7c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8l818")
+text = "Undo"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/HUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_mgc1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jqgjh")
+text = "Back"
+
+[node name="GameOverScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_left = 0.809
+anchor_top = 0.177
+anchor_right = 0.809
+anchor_bottom = 0.177
+offset_left = -193.541
+offset_top = -76.696
+offset_right = 192.459
+offset_bottom = 77.304
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.772394, 0.732995, 1)
+
+[node name="WinnerLabel" type="Label" parent="CanvasLayer/GameOverScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.497
+anchor_bottom = 1.0
+offset_right = 0.15799
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.531
+anchor_right = 1.0
+anchor_bottom = 0.994
+offset_left = 0.0339966
+offset_right = 5.0
+offset_bottom = -0.076004
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_vf5bc")
+text = "Restart"
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="BackGroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BackGroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.701961, 0.803922, 1, 1)

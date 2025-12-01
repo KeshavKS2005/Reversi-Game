@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dujpqdkf8m2r2"]
+
+[ext_resource type="Script" uid="uid://85r4uajr62gk" path="res://slot.gd" id="1_c24ra"]
+
+[sub_resource type="Gradient" id="Gradient_c24ra"]
+offsets = PackedFloat32Array(0, 0.991525, 1)
+colors = PackedColorArray(0.957653, 0.957653, 0.957653, 1, 0.940678, 0.940678, 0.940678, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_khion"]
+gradient = SubResource("Gradient_c24ra")
+width = 120
+height = 120
+fill_from = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_khion"]
+offsets = PackedFloat32Array(0.00649351, 0.863636, 0.87013, 0.967532, 0.993506)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hiqfk"]
+gradient = SubResource("Gradient_khion")
+width = 120
+height = 120
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.504587, 0.119266)
+
+[node name="Slot" type="TextureRect"]
+self_modulate = Color(0.0745098, 0.745098, 0.0745098, 1)
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = -1
+anchor_right = 0.056
+anchor_bottom = 0.099
+offset_right = -0.344002
+offset_bottom = -0.152008
+mouse_filter = 0
+texture = SubResource("GradientTexture2D_khion")
+script = ExtResource("1_c24ra")
+
+[node name="PieceSprite" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_hiqfk")
